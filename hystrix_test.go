@@ -1,4 +1,4 @@
-package hystrix
+package hystrix_test
 
 import (
 	"context"
@@ -8,6 +8,7 @@ import (
 	"github.com/micro/go-micro/client"
 	"github.com/micro/go-micro/registry/memory"
 	"github.com/micro/go-micro/selector"
+	mhystrix "github.com/x-punch/micro-hystrix"
 )
 
 func TestBreaker(t *testing.T) {
@@ -19,7 +20,7 @@ func TestBreaker(t *testing.T) {
 		// set the selector
 		client.Selector(s),
 		// add the breaker wrapper
-		client.Wrap(NewClientWrapper()),
+		client.Wrap(mhystrix.NewClientWrapper()),
 	)
 
 	req := c.NewRequest("test.service", "Test.Method", map[string]string{
