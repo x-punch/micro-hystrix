@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/afex/hystrix-go/hystrix"
-	mhystrix "github.com/x-punch/micro-hystrix"
+	mhystrix "github.com/x-punch/micro-hystrix/v2"
 )
 
 func TestConfigureCommand(t *testing.T) {
